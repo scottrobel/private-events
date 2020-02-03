@@ -26,7 +26,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'logout functionality' do
     delete logout_path
     assert_not flash.empty?
-    assert session.empty?
     assert_redirected_to(login_path)
   end
 end
