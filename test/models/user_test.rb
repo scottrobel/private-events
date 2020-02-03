@@ -40,7 +40,7 @@ class UserTest < ActiveSupport::TestCase
     #returns any object
     assert_equal host.owned_events.count, 1
     #returns an event type
-    assert_type_of Event, host.owned_events.first
+    assert_kind_of Event, host.owned_events.first
     #returns the right event
     assert_equal events(:coding_party), host.owned_events.first
   end
