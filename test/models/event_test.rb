@@ -14,4 +14,16 @@ class EventTest < ActiveSupport::TestCase
     assert_equal @event.invited_users.count, 3
     assert_equal @event.invited_users.first.class, User.new.class
   end
+
+  test "attendees attribute" do
+    attendees = @event.attendees
+    #returns any objects to test
+    assert attendees.count.any?
+    #returns the right type of objects
+    assert_kind_of attendees.first, User
+    #returns a user that has an accepted invite to the event
+    attendees.each do |attendee|
+      assert_not_nil Invite.find_by(user_id: attendee.id, event_id: @event.id)
+    end
+  end
 end
