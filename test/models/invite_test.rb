@@ -19,4 +19,9 @@ class InviteTest < ActiveSupport::TestCase
     assert_kind_of User, @invited_user
     assert_kind_of InviteStatus, @invite_status
   end
+
+  test "presence validatons" do
+    required_attributes = %w[user event invite_status]
+    presence_validations_test(@invite, required_attributes)
+  end
 end

@@ -59,14 +59,6 @@ class EventTest < ActiveSupport::TestCase
 
   test "presence validatons" do
     required_attributes = %w[title event_photo description location time event_organizer]
-    required_attributes.each do |attribute|
-      assert @event.valid?
-      original_attribute_value = @event.send(attribute)
-      @event.send("#{attribute}=", nil)
-      assert_not @event.valid?
-      assert @event.errors[attribute.to_sym].include?("can't be blank")
-      @event.send("#{attribute}=", original_attribute_value)
-      assert @event.valid?
-    end
+    presence_validations_test(@event, required_attributes)
   end
 end
