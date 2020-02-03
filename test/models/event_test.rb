@@ -18,12 +18,42 @@ class EventTest < ActiveSupport::TestCase
   test "attendees attribute" do
     attendees = @event.attendees
     #returns any objects to test
-    assert attendees.count.any?
+    assert attendees.any?
     #returns the right type of objects
-    assert_kind_of attendees.first, User
+    assert_kind_of User, attendees.first
     #returns a user that has an accepted invite to the event
     attendees.each do |attendee|
-      assert_not_nil Invite.find_by(user_id: attendee.id, event_id: @event.id)
+      users_invite = Invite.find_by(user_id: attendee.id, event_id: @event.id)
+      assert_not_nil users_invite
+      assert users_invite.invite_status.status == 'accepted'
+    end
+  end
+
+  test "non_attendees attribute" do
+    attendees = @event.non_attendees
+    #returns any objects to test
+    assert attendees.any?
+    #returns the right type of objects
+    assert_kind_of User, attendees.first
+    #returns a user that has an declined invite to the event
+    attendees.each do |attendee|
+      users_invite = Invite.find_by(user_id: attendee.id, event_id: @event.id)
+      assert_not_nil users_invite
+      assert users_invite.invite_status.status == 'declined'
+    end
+  end
+
+  test "pending_attendees attribute" do
+    attendees = @event.pending_attendees
+    #returns any objects to test
+    assert attendees.any?
+    #returns the right type of objects
+    assert_kind_of User, attendees.first
+    #returns a user that has an pending invite to the event
+    attendees.each do |attendee|
+      users_invite = Invite.find_by(user_id: attendee.id, event_id: @event.id)
+      assert_not_nil users_invite
+      assert users_invite.invite_status.status == 'pending'
     end
   end
 end
