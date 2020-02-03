@@ -28,4 +28,15 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_redirected_to(login_path)
   end
+
+  test 'Profile page' do
+    get profile_path
+    user = assigns(:user)
+    #exists
+    assert_not_nil user
+    #has user instance var
+    assert_kind_of User, user
+    assert 'h1', user.username
+    assert 'p', user.bio
+  end
 end

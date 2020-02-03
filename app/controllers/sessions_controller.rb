@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
   def new ; end
   def create
     user = User.find_by(username: params[:session][:username])
@@ -22,5 +21,4 @@ class SessionsController < ApplicationController
     flash[:success] = "You are now logged out!"
     redirect_to login_path
   end
-  def show ; end
 end
