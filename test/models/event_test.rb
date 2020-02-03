@@ -56,4 +56,17 @@ class EventTest < ActiveSupport::TestCase
       assert users_invite.invite_status.status == 'pending'
     end
   end
+
+  test "presence validatons" do
+    required_attributes = %w[title event_photo description location time event_organizer]
+    required_attributes.each do |attribute|
+      assert @event.valid?
+      original_attribute_value = @event.send(attribute)
+      @event.send("#{attribute}=", nil)
+      assert_not @event.valid?
+      assert @event.errors[attribute.to_sym].includes?("can't be blank")
+      @event.send("#{attribute}=", original_attribute_value)
+      assert @event.valid?
+    end
+  end
 end

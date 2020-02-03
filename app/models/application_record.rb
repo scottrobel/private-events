@@ -1,6 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
-  AcceptedInviteStatusId = InviteStatus.find_or_create_by(status: :accepted).id
-  PendingInviteStatusId = InviteStatus.find_or_create_by(status: :pending).id
-  DeclinedInviteStatusId = InviteStatus.find_or_create_by(status: :declined).id
+  AcceptedInviteStatusId = InviteStatus.find_or_create_by(status: :accepted)
+  PendingInviteStatusId = InviteStatus.find_or_create_by(status: :pending)
+  DeclinedInviteStatusId = InviteStatus.find_or_create_by(status: :declined)
 end
