@@ -64,7 +64,7 @@ class EventTest < ActiveSupport::TestCase
       original_attribute_value = @event.send(attribute)
       @event.send("#{attribute}=", nil)
       assert_not @event.valid?
-      assert @event.errors[attribute.to_sym].includes?("can't be blank")
+      assert @event.errors[attribute.to_sym].include?("can't be blank")
       @event.send("#{attribute}=", original_attribute_value)
       assert @event.valid?
     end

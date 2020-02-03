@@ -10,6 +10,6 @@ coding_party:
   event_photo: event.jpg
   description: fun coding party
   location: ocean city
-  time: <%= 5.years.frow_now %>
-  
+  time: <%= 5.years.from_now %>
+
 
