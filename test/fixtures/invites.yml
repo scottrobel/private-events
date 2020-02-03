@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+declined_invite:
+  user: non_coder
+  event: coding_party
+  invite_status: declined
+
+accepted_invite:
+  user: coder
+  event: coding_party
+  invite_status: accepted
+
+pending_invite:
+  user: busy_guy
+  event: coding_party
+  invite_status: pending
