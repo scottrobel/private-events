@@ -5,6 +5,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:party_monster)
     @user.password = 'password'
+    @user.save
   end
 
   test 'login page' do
@@ -15,9 +16,10 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'login functionality' do
-    post login_path, params: { username: '', password: ''}
-    assert_not flash[:error].empty?
-    post login_path, params: { username: @user.username, password: 'password'}
+    post login_path, params: {session:{ username: @user.username, password: 'password'}}
+    assert_not flash.empty?
+    post login_path, params: {session:{ username: @user.username, password: 'password'}}
     assert_redirected_to(profile_path)
+    assert_not flash.empty?
   end
 end
