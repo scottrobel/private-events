@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :pending_events, through: :pending_invites, source: :event
   has_many :accepted_events, through: :accepted_invites, source: :event
   has_many :declined_events, through: :declined_invites, source: :event
+  has_secure_password
 end

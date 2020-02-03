@@ -4,6 +4,7 @@ class EventTest < ActiveSupport::TestCase
   def setup
     @event = events(:coding_party)
     @event_organizer = users(:party_monster)
+    @event_organizer.password = 'password'
   end
 
   test "Events event_organizer attribute points to the right user" do

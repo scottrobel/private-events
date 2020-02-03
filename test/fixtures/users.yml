@@ -6,9 +6,13 @@
 #
 party_monster:
   username: scott
+  bio: hi my name is scott and I like to make stuff
 non_coder:
   username: steve
+  bio: hi my name is steve and I dont like to code
 coder:
   username: tom
+  bio: hi my name is tom and I dont code anymore
 busy_guy:
   username: steve
+  bio: hi my name is steve and im too busy to answer your invitation
