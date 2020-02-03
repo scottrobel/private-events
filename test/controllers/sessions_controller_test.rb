@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:party_monster)
     @user.password = 'password'
@@ -30,13 +29,15 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'Profile page' do
+    post login_path, params: {session:{ username: @user.username, password: 'password'}}
     get profile_path
-    user = assigns(:user)
     #exists
+    user = assigns(:user)
     assert_not_nil user
     #has user instance var
     assert_kind_of User, user
-    assert 'h1', user.username
-    assert 'p', user.bio
+    #page contains user info
+    assert_select 'h1', user.username
+    assert_select 'p', user.bio
   end
 end

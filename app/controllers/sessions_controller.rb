@@ -21,4 +21,9 @@ class SessionsController < ApplicationController
     flash[:success] = "You are now logged out!"
     redirect_to login_path
   end
+
+  def show
+    @user = current_user
+    render 'users/show'
+  end
 end
