@@ -13,4 +13,11 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'input[name=?]', 'session[password]'
     assert_select 'input[name=?]', 'commit'
   end
+
+  test 'login functionality' do
+    post login_path, params: { username: '', password: ''}
+    assert_not flash[:error].empty?
+    post login_path, params: { username: @user.username, password: 'password'}
+    assert_redirected_to(profile_path)
+  end
 end
