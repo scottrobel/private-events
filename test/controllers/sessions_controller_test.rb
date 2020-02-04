@@ -41,11 +41,13 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'p', user.bio
   end
 
-  test 'users have correct navbar' do
+  test 'navbar' do
     post login_path, params: {session:{ username: @user.username, password: 'password'}}
+    get profile_path
     assert_select 'a[href=?]', logout_path
     assert_select 'a[href=?]', profile_path
     delete logout_path
+    follow_redirect!
     assert_select 'a[href=?]', login_path
   end
 end
