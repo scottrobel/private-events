@@ -24,4 +24,12 @@ module SessionsHelper
       redirect_to profile_path
     end
   end
+
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must Login to see that!"
+      redirect_to login_path
+    end
+  end
 end
