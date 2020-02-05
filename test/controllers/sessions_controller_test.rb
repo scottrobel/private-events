@@ -62,8 +62,18 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     #redirects when you try and submit login and are already logged in
     post login_path, params: {session:{ username: @user.username, password: 'password'}}
     assert_redirected_to profile_path
-    assert_equal, flash[:error]
+    assert_equal "You are already logged in!", flash[:error]
     follow_redirect!
     delete logout_path
+  end
+
+  test 'require_login for profile_path and logout_path' do
+    get profile_path
+    assert_redirected_to login_path
+    assert_equal "You must Login to see that!", flash[:error]
+    follow_redirect!
+    delete logout_path
+    assert_redirected_to login_path
+    assert_equal "You must Login to see that!", flash[:error]
   end
 end
