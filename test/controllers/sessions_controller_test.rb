@@ -50,4 +50,20 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select 'a[href=?]', login_path
   end
+
+  test 'logged in users get redirected to profile page when they visit /login or submit to /login' do
+    post login_path, params: {session:{ username: @user.username, password: 'password'}}
+    #redirects logged in users to profile page when they goto the login page
+    get login_path
+    assert_redirected_to profile_path
+
+    assert_equal "You are already logged in!", flash[:error]
+    follow_redirect!
+    #redirects when you try and submit login and are already logged in
+    post login_path, params: {session:{ username: @user.username, password: 'password'}}
+    assert_redirected_to profile_path
+    assert_equal, flash[:error]
+    follow_redirect!
+    delete logout_path
+  end
 end
