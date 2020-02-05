@@ -17,4 +17,11 @@ module SessionsHelper
   def logged_in?
     !!current_user
   end
+
+  def require_logged_out
+    if logged_in?
+      flash[:error] = "You are already logged in!"
+      redirect_to profile_path
+    end
+  end
 end
