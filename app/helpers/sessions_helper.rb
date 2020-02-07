@@ -25,7 +25,6 @@ module SessionsHelper
     end
   end
 
-
   def require_login
     unless logged_in?
       flash[:error] = "You must Login to see that!"

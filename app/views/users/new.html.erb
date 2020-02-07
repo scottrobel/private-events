@@ -1,0 +1,10 @@
+<%= form_for @user, url: signup_path do |f| %>
+  <%= f.label 'Username' %>
+  <%= f.text_field :username, placeholder: :username %>
+  <%= f.label 'Bio'%>
+  <%= f.text_field :bio, placeholder: 'Type something about yourself!' %>
+  <%= f.label 'password'%>
+  <%= f.password_field :password, placeholder: 'Password' %>
+  <%= f.label 'password confirmation'%>
+  <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
+<% end %>
