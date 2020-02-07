@@ -1,4 +1,5 @@
-<div class="navbar-container">
-  <div><%= link_to "Log out", logout_path, method: :delete %></div>
-  <div><%= link_to "My Profile", profile_path %></div>
-</div>
+<div class="topnav">
+  <%= navbar_link "Log out", logout_path, method: :delete %>
+  <%= navbar_link "My Profile", profile_path %>
+  <%= navbar_link 'Create Event', new_event_path %>
+  </div>

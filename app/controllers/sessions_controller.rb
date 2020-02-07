@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
   def destroy
     logout
     flash[:success] = "You are now logged out!"

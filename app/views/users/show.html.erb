@@ -1,2 +1,15 @@
-<h1><%= @user.username%></h1>
-<p><%= @user.bio %></p>
+<div class="top-message">
+  <%= image_tag(@user.profile_photo.url) if @user.profile_photo.url %>
+  <div class="separator"></div>
+  <h1><%= @user.username%></h1>
+  <div class="separator"></div>
+  <p class="bio"><%= @user.bio %></p>
+</div>
+<script>
+setTimeout(() => {
+  let separators = Array.from(document.querySelectorAll('.separator'));
+  separators.forEach(function(separator){
+    separator.classList.add("full-width");
+  });  
+}, 500);
+</script>

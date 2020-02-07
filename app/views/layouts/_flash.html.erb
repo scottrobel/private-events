@@ -1,5 +1,3 @@
-<div class="flash-container">
-  <% flash.each do |type, string|%>
-    <div class="<%="#{type} flash"%>"><%= string %></div>
-  <% end %>
-</div>
+<% flash.each do |type, string|%>
+  <div class="<%="top-message flash-#{type}"%>"><%= string %></div>
+<% end %>

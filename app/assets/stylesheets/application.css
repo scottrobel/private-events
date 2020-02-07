@@ -13,3 +13,169 @@
  *= require_tree .
  *= require_self
  */
+ body{
+  margin: 0;
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/repeated-square.png");
+}
+.topnav{
+  display: flex;
+  background-color: #30BCED;
+  position: sticky;
+  top: 0;
+}
+.topnav > a{
+  flex-direction: row;
+  text-align: center;
+  font-family: 'Francois One', sans-serif;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: white;
+}
+.bold-link{
+  text-decoration: none;
+  color: white;
+}
+.topnav > a:hover,
+a.active{
+  background-color: white;
+  color: #30BCED;
+}
+.logo-row{
+  display: flex;
+  flex-direction: row;
+}
+.logo-row > a{
+  text-decoration: none;
+  color: black;
+  font-size: 30pt;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+}
+.posts-container{
+  list-style-type: none;
+  width: 60%;
+  margin: 0 auto;
+}
+.post{
+  padding: 15pt;
+  background-color: #30BCED;
+  color: white;
+  box-shadow: slategray 10px 10px;
+  margin: 0 0 10px 0;
+  margin: 25pt 0;
+  word-wrap: break-word;
+}
+.center-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-container > *{
+  display: block;
+  width: 30%;
+}
+form{
+  width: 300px;
+  padding: 10px 10px;
+  background-color: #30BCED;
+  border-radius: 5px;
+  margin: 0;
+}
+form, .form-group{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+label{
+  margin-top: 5px;
+  color:white;
+}
+input[type=text],
+input[type=email],
+input[type=password],
+textarea{
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  background-color: white;
+  color: #30BCED;
+  width: 100%;
+  resize: none;
+}
+::placeholder{
+  color: white;
+}
+input[type=submit],
+.submit{
+  margin-top: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  color: #30BCED;
+  border: none;
+  border-radius: 5px;
+}
+textarea{
+  height: 100px;
+}
+.post-link{
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  margin-left: 5px;
+}
+.top-message,
+.flash-success{
+  margin-top: 0;
+  padding: 20px 0px;
+  background-color: white;
+  text-align: center;
+  color:#30BCED;
+  border-bottom: 2px solid #30BCED;
+}
+.form-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6%;
+}
+.error{
+  padding: 5px 0px;
+  background-color:red;
+  text-align: center;
+  color:white;
+}
+#login-signup-link{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+.form-title{
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+}
+.time-ago{
+  float: right;
+}
+.bio{
+  margin: auto;
+  width: 70%;
+}
+.separator{
+  margin: 30px auto;
+  height: 1px;
+  width: 0%;
+  background-color: #30BCED;
+  transition-duration: 1s;
+}
+.full-width{
+  width: 100%;
+}

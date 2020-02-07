@@ -1,0 +1,11 @@
+<div class="form-container">
+  <%= form_for :session, url: login_path do |f| %>
+    <div class="form-title">Create Event</div>
+    <%= f.label 'Title' %>
+    <%= f.text_field :title %>
+    <%= f.label 'Description' %>
+    <%= f.text_area :description %>
+    <%= f.label 'Location' %>
+    <%= f.text_field :location %>
+  <% end %>
+</div>
