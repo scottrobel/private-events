@@ -1,5 +1,5 @@
 <div class="top-message">
-  <%= image_tag(@user.profile_photo.url) if @user.profile_photo.url %>
+  <%= image_tag(@user.profile_photo.url, class: 'avatar') if @user.profile_photo.url %>
   <div class="separator"></div>
   <h1><%= @user.username%></h1>
   <div class="separator"></div>

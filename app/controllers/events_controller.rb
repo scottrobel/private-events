@@ -10,8 +10,12 @@ class EventsController < ApplicationController
     @event.time = selected_date
     if @event.save
       flash[:success] = "Event Created"
-      #redirect_to @event
+      redirect_to @event
     end
+  end
+
+  def show
+    @event = Event.find_by(id: params[:id])
   end
 
   private

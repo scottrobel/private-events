@@ -8,5 +8,6 @@ class Event < ApplicationRecord
   has_many :pending_attendees, through: :pending_invites, source: 'user'
   has_many :declined_invites, ->{where(invite_status_id: DeclinedInviteStatusId)}, class_name: 'Invite'
   has_many :non_attendees, through: :declined_invites, source: 'user'
-    validates :title, :event_photo, :description, :location, :time, :event_organizer, presence: true
+  validates :title, :event_photo, :description, :location, :time, :event_organizer, presence: true
+  mount_uploader :event_photo, AvatarUploader
 end

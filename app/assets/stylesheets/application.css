@@ -178,3 +178,6 @@ textarea{
 .full-width{
   width: 100%;
 }
+.avatar{
+  border-radius: 50%;
+}
