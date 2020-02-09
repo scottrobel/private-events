@@ -8,7 +8,5 @@ class Event < ApplicationRecord
   has_many :pending_attendees, through: :pending_invites, source: 'user'
   has_many :declined_invites, ->{where(invite_status_id: DeclinedInviteStatusId)}, class_name: 'Invite'
   has_many :non_attendees, through: :declined_invites, source: 'user'
-  %w[title event_photo description location time event_organizer].each do |attribute|
-    validates attribute.to_sym, presence: true
-  end
+    validates :title, :event_photo, :description, :location, :time, :event_organizer, presence: true
 end
