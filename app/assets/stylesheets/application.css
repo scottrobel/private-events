@@ -188,7 +188,7 @@ textarea{
   font-size: 30pt;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  padding: 20px;
+  padding: 20px 0;
   background-color: white;
   width: 100%;
   text-align: center;
@@ -216,24 +216,15 @@ textarea{
   background-color: #30BCED;
   color: white;
 }
-.avatar-preview{
-  width: 100px;
-  border-radius: 50%;
-  float: left;
-  margin-left: 20px;
+.users{
+  display: flex;
 }
 .user{
-  text-align: center;
-  background-color: white;
-  padding: 10px 0;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-}
-.user > a > h1{
-  margin: 0;
-  color: #30BCED
-}
-a{
   text-decoration: none;
+  color: #30BCED;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+.user h1{
+  margin: 5px 0;
 }

@@ -1,6 +1,4 @@
-<div class="user">
-  <%= link_to user_path(user.id) do%>
-    <%= image_tag(user.profile_photo.url, class: 'avatar-preview') if user.profile_photo.url %>
-    <h1><%= user.username %></h1>
-  <% end %>
-<div>
+<%= link_to user_path(user.id), class: 'user' do%>
+  <%= image_tag(user.profile_photo.url, class: 'avatar-preview') if user.profile_photo.url %>
+  <h1><%= user.username %></h1>
+<% end %>

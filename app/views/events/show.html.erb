@@ -10,7 +10,9 @@
 </div>
 <%= render 'layouts/attendees_logo' %>
 <%= render 'events/invited_users_nav', event_id: @event.id%>
-<%= render @users %>
+<div class="users">
+  <%= render @users %>
+</div>
 <script>
 setTimeout(() => {
   let separators = Array.from(document.querySelectorAll('.separator'));

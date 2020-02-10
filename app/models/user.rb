@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   future_event = ->{ where("time > ?", Time.now) }
-  has_many :pending_invites, ->{ where(invite_status_id: PendingInviteStatusId) }, class_name: 'Invite'
-  has_many :accepted_invites, ->{ where(invite_status_id: AcceptedInviteStatusId) }, class_name: 'Invite'
-  has_many :declined_invites, ->{ where(invite_status_id: DeclinedInviteStatusId) }, class_name: 'Invite'
+  has_many :pending_invites, ->{ where("invite_status_id = ?", InviteStatus.find_by(status: :pending).id) }, class_name: 'Invite'
+  has_many :accepted_invites, ->{ where("invite_status_id = ?", InviteStatus.find_by(status: :pending).id) }, class_name: 'Invite'
+  has_many :declined_invites, ->{ where("invite_status_id = ?", InviteStatus.find_by(status: :declined).id) }, class_name: 'Invite'
   has_many :pending_events, future_event, through: :pending_invites, source: :event
   has_many :accepted_events, future_event, through: :accepted_invites, source: :event
   has_many :declined_events, future_event, through: :declined_invites, source: :event
