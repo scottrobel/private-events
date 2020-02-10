@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  include EventsHelper
   before_action :require_login, only:[:new, :create]
   def new
     @event = Event.new
@@ -16,6 +17,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @users = invited_users(@event ,params[:tab])
   end
 
   private

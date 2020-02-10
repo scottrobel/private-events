@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
   before_action :require_logged_out, only: [:new, :create]
   before_action :require_login, only: [:destroy, :show]
   def new ; end

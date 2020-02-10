@@ -30,6 +30,7 @@
   padding: 15px 20px;
   text-decoration: none;
   color: white;
+  transition-duration: 0.5s;
 }
 .bold-link{
   text-decoration: none;
@@ -46,7 +47,7 @@ a.active{
 }
 .logo-row > a{
   text-decoration: none;
-  color: black;
+  color: #30BCED;
   font-size: 30pt;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
@@ -169,7 +170,7 @@ textarea{
   width: 70%;
 }
 .separator{
-  margin: 30px auto;
+  margin: 20px auto;
   height: 1px;
   width: 0%;
   background-color: #30BCED;
@@ -180,4 +181,59 @@ textarea{
 }
 .avatar{
   border-radius: 50%;
+}
+.event-users-logo{
+  text-decoration: none;
+  color: #30BCED;
+  font-size: 30pt;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.event-users-nav {
+  display: flex;
+  background-color: white;
+  position: sticky;
+  top: 0;
+}
+
+.event-users-nav > a {
+  flex-direction: row;
+  text-align: center;
+  font-family: 'Francois One', sans-serif;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #30BCED;
+  transition-duration: 0.5s;
+  flex-grow: 1;
+}
+.event-users-nav > a:hover, 
+ #current-event-tab{
+  background-color: #30BCED;
+  color: white;
+}
+.avatar-preview{
+  width: 100px;
+  border-radius: 50%;
+  float: left;
+  margin-left: 20px;
+}
+.user{
+  text-align: center;
+  background-color: white;
+  padding: 10px 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.user > a > h1{
+  margin: 0;
+  color: #30BCED
+}
+a{
+  text-decoration: none;
 }
