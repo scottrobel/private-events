@@ -13,13 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ $primary-color: #00adb5;
  body{
   margin: 0;
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/repeated-square.png");
 }
 .topnav{
   display: flex;
-  background-color: #30BCED;
+  background-color: $primary-color;
   position: sticky;
   top: 0;
 }
@@ -39,7 +40,7 @@
 .topnav > a:hover,
 a.active{
   background-color: white;
-  color: #30BCED;
+  color: $primary-color;
 }
 .logo-row{
   display: flex;
@@ -47,7 +48,7 @@ a.active{
 }
 .logo-row > a{
   text-decoration: none;
-  color: #30BCED;
+  color: $primary-color;
   font-size: 30pt;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
@@ -62,7 +63,7 @@ a.active{
 }
 .post{
   padding: 15pt;
-  background-color: #30BCED;
+  background-color: $primary-color;
   color: white;
   box-shadow: slategray 10px 10px;
   margin: 0 0 10px 0;
@@ -82,7 +83,7 @@ a.active{
 form{
   width: 300px;
   padding: 10px 10px;
-  background-color: #30BCED;
+  background-color: $primary-color;
   border-radius: 5px;
   margin: 0;
 }
@@ -104,7 +105,7 @@ textarea{
   border-radius: 5px;
   padding: 10px 10px;
   background-color: white;
-  color: #30BCED;
+  color: $primary-color;
   width: 100%;
   resize: none;
 }
@@ -116,7 +117,7 @@ input[type=submit],
   margin-top: 10px;
   height: 30px;
   background-color: white;
-  color: #30BCED;
+  color: $primary-color;
   border: none;
   border-radius: 5px;
 }
@@ -135,8 +136,8 @@ textarea{
   padding: 20px 0px;
   background-color: white;
   text-align: center;
-  color:#30BCED;
-  border-bottom: 2px solid #30BCED;
+  color:$primary-color;
+  border-bottom: 2px solid $primary-color;
 }
 .form-container{
   height: 100%;
@@ -168,12 +169,13 @@ textarea{
 .bio{
   margin: auto;
   width: 70%;
+  word-wrap: break-word;
 }
 .separator{
   margin: 20px auto;
   height: 1px;
   width: 0%;
-  background-color: #30BCED;
+  background-color: $primary-color;
   transition-duration: 1s;
 }
 .full-width{
@@ -184,7 +186,7 @@ textarea{
 }
 .event-users-logo{
   text-decoration: none;
-  color: #30BCED;
+  color: $primary-color;
   font-size: 30pt;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
@@ -196,7 +198,7 @@ textarea{
 
 .event-users-nav {
   display: flex;
-  background-color: white;
+  background-color: $primary-color;
   position: sticky;
   top: 0;
 }
@@ -207,24 +209,34 @@ textarea{
   font-family: 'Francois One', sans-serif;
   padding: 15px 20px;
   text-decoration: none;
-  color: #30BCED;
+  color: white;
   transition-duration: 0.5s;
   flex-grow: 1;
 }
 .event-users-nav > a:hover, 
  #current-event-tab{
-  background-color: #30BCED;
-  color: white;
+  background-color: white;
+  color: $primary-color;
 }
 .users{
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .user{
   text-decoration: none;
-  color: #30BCED;
+  color: white;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  margin: 20px;
+  background-color: $primary-color;
+  padding: 5px;
+  box-shadow: 10px 10px grey;
 }
 .user h1{
   margin: 5px 0;
+}
+.avatar-preview{
+  border-radius: 50%;
 }

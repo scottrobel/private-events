@@ -3,7 +3,6 @@ class Invite < ApplicationRecord
   belongs_to :event
   belongs_to :invite_status
   validates :user, :event, :invite_status, presence: :true
-
   def status=(status)
     case status
     when :accepted

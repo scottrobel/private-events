@@ -12,7 +12,6 @@ class ActiveSupport::TestCase
 
   def presence_validations_test(object, attributes)
     attributes.each do |attribute|
-      debugger unless object.valid?
       assert object.valid?
       original_attribute_value = object.send(attribute)
       object.send("#{attribute}=", nil)

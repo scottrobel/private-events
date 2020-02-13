@@ -1,0 +1,8 @@
+<div class="form-container">
+<%= form_with(url: 'invites', method: :post) do |f| %>
+  <% @all_users.each do |user| %>
+    <%= f.check_box :users, { multiple: true }, user, false %>
+    <%= link_to "#{user.username}", user %>
+  <% end %>
+<% end %>
+</div>

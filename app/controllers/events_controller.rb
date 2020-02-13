@@ -17,7 +17,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @users = invited_users(@event ,params[:tab])
+    if params[:tab] == 'create_invites'
+      @display_invite_form = true
+      @all_users = User.all
+    else
+      @invited_users = invited_users(@event, params[:tab])
+    end
   end
 
   private
@@ -29,5 +34,22 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :event_photo, :description, :location, :time)
+  end
+
+  private
+
+  def invited_users(event, tab)
+    case tab
+    when 'accepted_users'
+      event.attendees
+    when 'pending_users'
+      event.pending_attendees
+    when 'declined_users'
+      event.non_attendees
+    when nil
+      event.attendees
+    else
+      []
+    end
   end
 end

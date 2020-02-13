@@ -10,14 +10,16 @@
 </div>
 <%= render 'layouts/attendees_logo' %>
 <%= render 'events/invited_users_nav', event_id: @event.id%>
-<div class="users">
-  <%= render @users %>
-</div>
+<% if @display_invite_form %>
+  <%= render 'invite_form' %>
+<% else %>
+  <%= render 'event_users' %>
+<% end %>
 <script>
-setTimeout(() => {
-  let separators = Array.from(document.querySelectorAll('.separator'));
-  separators.forEach(function(separator){
-    separator.classList.add("full-width");
-  });  
-}, 500);
+  setTimeout(() => {
+    let separators = Array.from(document.querySelectorAll('.separator'));
+    separators.forEach(function(separator){
+      separator.classList.add("full-width");
+    });  
+  }, 500);
 </script>

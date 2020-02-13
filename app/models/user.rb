@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   future_event = ->{ where("time > ?", Time.now) }
+  has_many :invites, class_name: 'Invite'
+  has_many :events, through: :invites, source: :event
   has_many :pending_invites, ->{ where(invite_status_id: PendingInviteStatusId) }, class_name: 'Invite'
   has_many :accepted_invites, ->{ where(invite_status_id: AcceptedInviteStatusId) }, class_name: 'Invite'
   has_many :declined_invites, ->{ where(invite_status_id: DeclinedInviteStatusId) }, class_name: 'Invite'
