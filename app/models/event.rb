@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  scope :past, ->{ where("time < ?", Time.now) }
+  scope :future, ->{ where("time > ?", Time.now) }
   belongs_to :event_organizer, class_name: 'User', foreign_key: 'event_organizer_id'
   has_many :invites, dependent: :destroy
   has_many :invited_users, through: :invites, source: 'user'
@@ -10,4 +12,5 @@ class Event < ApplicationRecord
   has_many :non_attendees, through: :declined_invites, source: 'user'
   validates :title, :event_photo, :description, :location, :time, :event_organizer, presence: true
   mount_uploader :event_photo, AvatarUploader
+  future_event = ->{ where("time > ?", Time.now) }
 end

@@ -1,5 +1,6 @@
 <div class="tab-nav">
-  <%= event_tab_link 'Accepted Events', profile_path(tab: :accepted_events) %>
-  <%= event_tab_link "Pending Events", profile_path(tab: :pending_events) %>
-  <%= event_tab_link 'Declined Events', profile_path(tab: :declined_events) %>
+  <%= event_tab_link 'Past Events', profile_path(tab: :past_events) %>
+  <%= event_tab_link 'Future Events', profile_path(tab: :future_events) %>
+  <%= event_tab_link 'Pending Events', profile_path(tab: :pending_events) %>
+  <%= event_tab_link 'Events You Are Hosting', profile_path(tab: :hosted_events)%>
 </div>

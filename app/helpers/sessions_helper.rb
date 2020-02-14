@@ -3,12 +3,14 @@ module SessionsHelper
 
   def users_events(tab)
     case tab
-    when 'accepted_events'
-      current_user.accepted_events
+    when 'past_events'
+      current_user.events.past
+    when 'future_events'
+      current_user.events.future
     when 'pending_events'
       current_user.pending_events
-    when 'declined_events'
-      current_user.declined_events
+    when 'hosted_events'
+      current_user.owned_events
     when nil
       current_user.pending_events
     end
@@ -44,6 +46,12 @@ module SessionsHelper
     unless logged_in?
       flash[:error] = "You must Login to see that!"
       redirect_to login_path
+    end
+  end
+
+  def require_profile_tab
+    if params[:tab] == nil
+      redirect_to profile_path(tab: :pending_events)
     end
   end
 end

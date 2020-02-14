@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
   before_action :require_logged_out, only: [:new, :create]
   before_action :require_login, only: [:destroy, :show]
+  before_action :require_profile_tab, only: [:show]
   def new ; end
   def create
     user = User.find_by(username: params[:session][:username])
