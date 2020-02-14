@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- $primary-color: #00adb5;
+ $primary-color: rgb(48, 180, 180);
  body{
   margin: 0;
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/repeated-square.png");
@@ -196,14 +196,14 @@ textarea{
   text-align: center;
 }
 
-.event-users-nav {
+.tab-nav {
   display: flex;
   background-color: $primary-color;
   position: sticky;
   top: 0;
 }
 
-.event-users-nav > a {
+.tab-nav > a {
   flex-direction: row;
   text-align: center;
   font-family: 'Francois One', sans-serif;
@@ -213,7 +213,7 @@ textarea{
   transition-duration: 0.5s;
   flex-grow: 1;
 }
-.event-users-nav > a:hover, 
+.tab-nav > a:hover, 
  #current-event-tab{
   background-color: white;
   color: $primary-color;
@@ -233,10 +233,52 @@ textarea{
   background-color: $primary-color;
   padding: 5px;
   box-shadow: 10px 10px grey;
+  width: 200px;
+  word-break: break-word;
 }
 .user h1{
   margin: 5px 0;
 }
 .avatar-preview{
   border-radius: 50%;
+}
+.selection-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.selection-group a{
+  text-decoration: none;
+  color: white;
+  font-size: 20pt;
+}
+.selection-group input{
+  margin: auto 0;
+  width: 1.5em;
+  height: 1.5em;
+}
+.events-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.event-container{
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 2vw;
+  margin: 20px;
+  box-shadow: 10px 10px grey;
+  width: 90%;
+  word-break: break-word;
+}
+.event-container h3, 
+.event-container p{
+  margin: 10px 0;
 }

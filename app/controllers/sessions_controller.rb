@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
 
   def show
     @user = current_user
-    render 'users/show'
+    @events = users_events(params[:tab])
+    render 'sessions/show'
   end
 end

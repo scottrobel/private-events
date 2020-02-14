@@ -1,8 +1,13 @@
 <div class="form-container">
-<%= form_with(url: 'invites', method: :post) do |f| %>
+<%= form_for(:invites, url: invites_path, method: :post) do |f| %>
+  <div class="form-title">Invite Users</div>
   <% @all_users.each do |user| %>
-    <%= f.check_box :users, { multiple: true }, user, false %>
-    <%= link_to "#{user.username}", user %>
-  <% end %>
+    <%= f.hidden_field :id, :value => "#{@event.id}" %>
+      <div class="selection-group">
+        <%= f.check_box :users, { multiple: true }, user.id, false %>
+        <%= link_to "#{user.username}", user %>
+      </div>
+    <% end %>
+    <%= f.submit 'Invite User(s)' %>
 <% end %>
 </div>

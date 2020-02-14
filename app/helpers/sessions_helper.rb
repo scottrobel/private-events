@@ -1,5 +1,20 @@
 module SessionsHelper
   private
+
+  def users_events(tab)
+    case tab
+    when 'accepted_events'
+      current_user.accepted_events
+    when 'pending_events'
+      current_user.pending_events
+    when 'declined_events'
+      current_user.declined_events
+    when nil
+      current_user.pending_events
+    end
+    
+  end
+
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end

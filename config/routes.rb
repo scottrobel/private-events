@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   resources :users, only: [:show]
   resources :events, only: [:new, :create, :show]
+  resources :invites, only: [:create]
 end

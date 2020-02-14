@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :require_logged_out, only: [:new, :create]
+  before_action :not_own_profile, only: [:show]
   def new
     @user = User.new
   end
