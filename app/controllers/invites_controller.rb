@@ -4,6 +4,7 @@ class InvitesController < ApplicationController
   before_action :require_login
   before_action :require_invited, only: [:update]
   before_action :require_valid_response, only: [:update]
+  before_action :require_not_empty, only: [:create]
   def create
     event = Event.find_by(id: params[:invites][:id])
     selected_users = User.where(id: params[:invites][:users])

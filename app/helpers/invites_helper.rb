@@ -11,5 +11,11 @@ module InvitesHelper
       redirect_to profile_path(tab: :pending_events)
     end
   end
-    
+  
+  def require_not_empty
+    unless params[:invites]
+      flash[:error] = "You must Select atleast one user!"
+      redirect_to request.referrer
+    end
+  end
 end
