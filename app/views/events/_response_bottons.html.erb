@@ -1,2 +1,4 @@
-<div class="response-buttons">
+<div class="event-top-options">
+  <%= link_to 'Accept' ,invite_path(event.id ,response: :accepted), method: :put, class: :accept %>
+  <%= link_to 'Decline' ,invite_path(event.id ,response: :declined) , method: :put, class: :decline %>
 </div>

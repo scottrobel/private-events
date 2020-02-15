@@ -1,7 +1,9 @@
 module EventsHelper
   private
   def require_attendee
-    unless Event.find_by(id: params[:id]) &. attendees &. include?(current_user)
+    event = Event.find_by(id: params[:id])
+    unless (event &. attendees &. include?(current_user)) || (event.event_organizer == current_user)
+      flash[:error] = "You Must be an attendee to view that event!"
       redirect_to profile_path
     end
   end

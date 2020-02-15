@@ -1,7 +1,7 @@
 module ApplicationHelper
   private
   def navbar_link_class(link)
-    if request.fullpath == link
+    if request.path == link
       'active'
     else
       ''

@@ -201,6 +201,7 @@ textarea{
   background-color: $primary-color;
   position: sticky;
   top: 0;
+  margin-bottom: 30px;
 }
 
 .tab-nav > a {
@@ -271,14 +272,37 @@ textarea{
   text-decoration: none;
   align-items: center;
   justify-content: center;
-  padding: 10px;
   font-size: 2vw;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   box-shadow: 10px 10px grey;
   width: 90%;
   word-break: break-word;
+  margin-bottom: 30px;
+  padding-top: 10px;
 }
 .event-container h3, 
 .event-container p{
   margin: 10px 0;
+}
+.event-top-options{
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  box-shadow: 10px 10px grey;
+}
+.event-top-options a{
+  flex-grow: 1;
+  text-align: center;
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 0;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+.event-top-options a:hover{
+  background-color: white;
+  color: $primary-color;
+}
+.event-box{
+  box-shadow: 10px 10px grey;
 }

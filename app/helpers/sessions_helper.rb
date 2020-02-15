@@ -4,11 +4,11 @@ module SessionsHelper
   def users_events(tab)
     case tab
     when 'past_events'
-      current_user.events.past
+      current_user.accepted_events.past
     when 'future_events'
-      current_user.events.future
+      current_user.accepted_events.future
     when 'pending_events'
-      current_user.pending_events
+      current_user.pending_events.future
     when 'hosted_events'
       current_user.owned_events
     when nil

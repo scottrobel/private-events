@@ -1,12 +1,12 @@
 <div class="top-message">
   <%= image_tag(@event.event_photo.url, class: 'avatar') if @event.event_photo.url %>
-   <h2><%= @event.title %></h2>
-   <div class="separator"></div>
-   <p class="bio"><%= @event.description %></p>
-   <div class="separator"></div>
-   <div>Event time: <%= @event.time.strftime("%F %T") %></div>
-   <div class="separator"></div>
-   <div>Event Location: <%= @event.location %></div>
+  <h2><%= @event.title %></h2>
+  <div class="separator"></div>
+  <p class="bio"><%= @event.description %></p>
+  <div class="separator"></div>
+  <div>Event time: <%= @event.time.strftime("%F %T") %></div>
+  <div class="separator"></div>
+  <div>Event Location: <%= @event.location %></div>
 </div>
 <%= render 'layouts/attendees_logo' %>
 <%= render 'events/invited_users_nav', event_id: @event.id%>
