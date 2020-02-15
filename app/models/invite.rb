@@ -1,4 +1,7 @@
 class Invite < ApplicationRecord
+  AcceptedInviteStatusId = InviteStatus.find_or_create_by(status: :accepted).id
+  PendingInviteStatusId = InviteStatus.find_or_create_by(status: :pending).id
+  DeclinedInviteStatusId = InviteStatus.find_or_create_by(status: :declined).id
   belongs_to :user
   belongs_to :event
   belongs_to :invite_status

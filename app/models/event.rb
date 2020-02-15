@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+  AcceptedInviteStatusId = InviteStatus.find_or_create_by(status: :accepted).id
+  PendingInviteStatusId = InviteStatus.find_or_create_by(status: :pending).id
+  DeclinedInviteStatusId = InviteStatus.find_or_create_by(status: :declined).id
   scope :past, ->{ where("time < ?", Time.now) }
   scope :future, ->{ where("time > ?", Time.now) }
   belongs_to :event_organizer, class_name: 'User', foreign_key: 'event_organizer_id'

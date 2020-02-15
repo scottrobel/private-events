@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  AcceptedInviteStatusId = InviteStatus.find_or_create_by(status: :accepted).id
+  PendingInviteStatusId = InviteStatus.find_or_create_by(status: :pending).id
+  DeclinedInviteStatusId = InviteStatus.find_or_create_by(status: :declined).id
   future_event = ->{ where("time > ?", Time.now) }
   has_many :invites, class_name: 'Invite', dependent: :destroy
   has_many :events, through: :invites, source: :event
