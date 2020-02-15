@@ -1,15 +1,15 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
 
+  config.secret_key_base = "31feb23a47527401a2b8cc1c5af2a87456e245ea2f2470e32f1cf4cca1ed405a42e915c6b0db7dac368953a805e091afa2e9758cae86db74541debb0b37d0f5d"
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.secret_key_base = "31feb23a47527401a2b8cc1c5af2a87456e245ea2f2470e32f1cf4cca1ed405a42e915c6b0db7dac368953a805e091afa2e9758cae86db74541debb0b37d0f5d"
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -58,7 +58,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "private_events_production"
+  # config.active_job.queue_name_prefix = "members_only_production"
 
   config.action_mailer.perform_caching = false
 
@@ -106,7 +106,4 @@ Rails.application.configure do
   # DatabaseSelector middleware is designed as such you can define your own
   # strategy for connection switching and pass that into the middleware through
   # these configuration options.
-  # config.active_record.database_selector = { delay: 2.seconds }
-  # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
