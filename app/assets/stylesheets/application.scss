@@ -295,13 +295,17 @@ textarea{
   text-align: center;
   background-color: $primary-color;
   color: white;
-  padding: 10px 0;
+  padding: 20px 0;
   text-decoration: none;
   transition-duration: 0.5s;
 }
-.event-top-options a:hover{
-  background-color: white;
-  color: $primary-color;
+.event-top-options a.accept:hover{
+  background-color: rgb(48, 218, 32);
+  color: white;
+}
+.event-top-options a.decline:hover{
+  background-color: rgb(218, 98, 19);
+  color: white;
 }
 .event-box{
   box-shadow: 10px 10px grey;
